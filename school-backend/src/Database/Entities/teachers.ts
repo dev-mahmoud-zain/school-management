@@ -4,6 +4,7 @@ import {
   Column,
   OneToMany,
 } from 'typeorm';
+import type { Relation } from 'typeorm';
 import { BaseModel } from './base.model.js';
 import { Course } from './courses.js';
 
@@ -22,5 +23,5 @@ export class Teacher extends BaseModel {
   phone: string;
 
   @OneToMany(() => Course, (course) => course.teacher)
-  courses: Course[];
+  courses: Relation<Course[]>;
 }

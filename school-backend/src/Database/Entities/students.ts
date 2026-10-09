@@ -5,6 +5,7 @@ import {
   ManyToMany,
   JoinTable,
 } from 'typeorm';
+import type { Relation } from 'typeorm';
 import { BaseModel } from './base.model.js';
 import { Course } from './courses.js';
 
@@ -27,5 +28,5 @@ export class Student extends BaseModel {
 
   @ManyToMany(() => Course, (course) => course.students)
   @JoinTable({ name: 'student_courses' })
-  courses: Course[];
+  courses: Relation<Course[]>;
 }

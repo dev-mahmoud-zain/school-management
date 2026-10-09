@@ -6,7 +6,11 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { getDatabaseConfig } from './Database/Connection/connection.db.js';
 import { DatabaseService } from './Database/Connection/database.service.js';
 import { Admin } from './Database/Entities/admins.js';
+import { Course } from './Database/Entities/courses.js';
+import { Classroom } from './Database/Entities/classrooms.js';
+import { Student } from './Database/Entities/students.js';
 import { AuthModule } from './Modules/Auth/auth.module.js';
+import { TeacherModule } from './Modules/Teacher/teacher.module.js';
 
 @Module({
   imports: [
@@ -19,8 +23,9 @@ import { AuthModule } from './Modules/Auth/auth.module.js';
       inject: [ConfigService],
       useFactory: getDatabaseConfig,
     }),
-    TypeOrmModule.forFeature([Admin]),
+    TypeOrmModule.forFeature([Admin, Course, Classroom, Student]),
     AuthModule,
+    TeacherModule,
   ],
   controllers: [AppController],
   providers: [AppService, DatabaseService],

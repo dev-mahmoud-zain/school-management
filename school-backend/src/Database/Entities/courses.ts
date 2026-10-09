@@ -6,6 +6,7 @@ import {
   ManyToMany,
   JoinColumn,
 } from 'typeorm';
+import type { Relation } from 'typeorm';
 import { BaseModel } from './base.model.js';
 import { Teacher } from './teachers.js';
 import { Classroom } from './classrooms.js';
@@ -27,12 +28,12 @@ export class Course extends BaseModel {
 
   @ManyToOne(() => Teacher, (teacher) => teacher.courses, { nullable: true, onDelete: 'SET NULL' })
   @JoinColumn({ name: 'teacherId' })
-  teacher: Teacher;
+  teacher: Relation<Teacher>;
 
   @ManyToOne(() => Classroom, (classroom) => classroom.courses, { nullable: true, onDelete: 'SET NULL' })
   @JoinColumn({ name: 'classroomId' })
-  classroom: Classroom;
+  classroom: Relation<Classroom>;
 
   @ManyToMany(() => Student, (student) => student.courses)
-  students: Student[];
+  students: Relation<Student[]>;
 }

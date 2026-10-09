@@ -5,8 +5,8 @@ import { ConfigModule, ConfigService } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { getDatabaseConfig } from './Database/Connection/connection.db.js';
 import { DatabaseService } from './Database/Connection/database.service.js';
-
 import { Admin } from './Database/Entities/admins.js';
+import { AuthModule } from './Modules/Auth/auth.module.js';
 
 @Module({
   imports: [
@@ -20,6 +20,7 @@ import { Admin } from './Database/Entities/admins.js';
       useFactory: getDatabaseConfig,
     }),
     TypeOrmModule.forFeature([Admin]),
+    AuthModule,
   ],
   controllers: [AppController],
   providers: [AppService, DatabaseService],

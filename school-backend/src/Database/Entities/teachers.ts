@@ -2,8 +2,10 @@ import {
   Entity,
   PrimaryGeneratedColumn,
   Column,
+  OneToMany,
 } from 'typeorm';
 import { BaseModel } from './base.model.js';
+import { Course } from './courses.js';
 
 @Entity('teachers')
 export class Teacher extends BaseModel {
@@ -18,4 +20,7 @@ export class Teacher extends BaseModel {
 
   @Column({ nullable: true })
   phone: string;
+
+  @OneToMany(() => Course, (course) => course.teacher)
+  courses: Course[];
 }

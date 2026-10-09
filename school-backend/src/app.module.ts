@@ -6,6 +6,8 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { getDatabaseConfig } from './Database/Connection/connection.db.js';
 import { DatabaseService } from './Database/Connection/database.service.js';
 
+import { Admin } from './Database/Entities/admins.js';
+
 @Module({
   imports: [
     ConfigModule.forRoot({
@@ -17,8 +19,9 @@ import { DatabaseService } from './Database/Connection/database.service.js';
       inject: [ConfigService],
       useFactory: getDatabaseConfig,
     }),
+    TypeOrmModule.forFeature([Admin]),
   ],
   controllers: [AppController],
-  providers: [AppService,DatabaseService],
+  providers: [AppService, DatabaseService],
 })
 export class AppModule {}

@@ -3,10 +3,10 @@ import {
   PrimaryGeneratedColumn,
   Column,
 } from 'typeorm';
+import { BaseModel } from './base.model.js';
 
-
-@Entity('teachers')
-export class Teacher {
+@Entity('students')
+export class Student extends BaseModel {
   @PrimaryGeneratedColumn('uuid')
   id: string;
 
@@ -18,4 +18,7 @@ export class Teacher {
 
   @Column({ nullable: true })
   phone: string;
+
+  @Column({ type: 'timestamp', nullable: true })
+  enrollmentDate: Date;
 }

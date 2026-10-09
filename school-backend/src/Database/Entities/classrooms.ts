@@ -3,10 +3,10 @@ import {
   PrimaryGeneratedColumn,
   Column,
 } from 'typeorm';
-
+import { BaseModel } from './base.model.js';
 
 @Entity('classrooms')
-export class Classroom {
+export class Classroom extends BaseModel {
   @PrimaryGeneratedColumn('uuid')
   id: string;
 

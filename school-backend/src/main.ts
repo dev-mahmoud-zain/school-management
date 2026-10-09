@@ -15,4 +15,4 @@ async function bootstrap() {
   console.log(`Application is running on ${process.env.HOST}:${PORT}`);
 }
 
-await bootstrap();
+bootstrap();

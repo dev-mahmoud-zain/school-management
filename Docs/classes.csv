@@ -1,0 +1,16 @@
+name,capacity,teacher_name,teacher_email
+ Grade  1 A ,03,ahmed hassan,AHMED.HASSAN@example.com
+Grade 1 B,4, Mona  Ali , mona.ali@example.com 
+Grade 2 A,3,Omar Samir,omar.samir@example.com
+Science Club,2,"Salma, Adel",salma.adel@example.com
+Reading Group,2,Nour Mohamed,nour.two@example.com
+Arabic Club,3,ليلى محمود,LAYLA.MAHMOUD@example.com
+grade 1 a,3,Ahmed Hassan,ahmed.hassan@example.com
+GRADE 1 A,5,Ahmed Hassan,ahmed.hassan@example.com
+Art Club,2,Rania Fathy,rania.fathy@example.com
+Music Club,two,Mona Ali,mona.ali@example.com
+Sports Club,0,Omar Samir,omar.samir@example.com
+History Club,2,Nour Mohamed,
+Coding Club,2,Mona Ali,omar.samir@example.com
+Math Club,2.5,Ahmed Hassan,ahmed.hassan@example.com
+,2,Mona Ali,mona.ali@example.com

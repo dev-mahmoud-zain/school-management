@@ -11,6 +11,9 @@ import { Classroom } from './Database/Entities/classrooms.js';
 import { Student } from './Database/Entities/students.js';
 import { AuthModule } from './Modules/Auth/auth.module.js';
 import { TeacherModule } from './Modules/Teacher/teacher.module.js';
+import { StudentModule } from './Modules/Student/student.module.js';
+import { ClassroomModule } from './Modules/Classroom/classroom.module.js';
+import { CourseModule } from './Modules/Course/course.module.js';
 
 @Module({
   imports: [
@@ -26,6 +29,9 @@ import { TeacherModule } from './Modules/Teacher/teacher.module.js';
     TypeOrmModule.forFeature([Admin, Course, Classroom, Student]),
     AuthModule,
     TeacherModule,
+    StudentModule,
+    ClassroomModule,
+    CourseModule,
   ],
   controllers: [AppController],
   providers: [AppService, DatabaseService],

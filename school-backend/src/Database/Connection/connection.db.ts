@@ -13,5 +13,5 @@ export const getDatabaseConfig = (
   password: config.get<string>('DB_PASSWORD'),
   database: config.get<string>('DB_DATABASE'),
   autoLoadEntities: true,
-  synchronize: false,
+  synchronize: true,
 });

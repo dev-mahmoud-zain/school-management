@@ -1,8 +1,9 @@
+
 import { Entity, PrimaryGeneratedColumn, Column } from 'typeorm';
 import { BaseModel } from './base.model.js';
 
-@Entity('admins')
-export class Admin extends BaseModel {
+@Entity('accounts')
+export class Account extends BaseModel {
   @PrimaryGeneratedColumn('uuid')
   id: string;
 
@@ -14,4 +15,7 @@ export class Admin extends BaseModel {
 
   @Column()
   passwordHash: string;
+
+  @Column({ default: 'admin' })
+  role: string;
 }

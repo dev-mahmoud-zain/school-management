@@ -1,12 +1,9 @@
-import {
-  Entity,
-  PrimaryGeneratedColumn,
-  Column,
-  OneToMany,
-} from 'typeorm';
+
+import { Entity, PrimaryGeneratedColumn, Column, OneToMany, ManyToOne, JoinColumn } from 'typeorm';
 import type { Relation } from 'typeorm';
 import { BaseModel } from './base.model.js';
-import { Course } from './courses.js';
+import { Teacher } from './teachers.js';
+import { Student } from './students.js';
 
 @Entity('classrooms')
 export class Classroom extends BaseModel {
@@ -14,11 +11,15 @@ export class Classroom extends BaseModel {
   id: string;
 
   @Column({ length: 50, unique: true })
-  roomNumber: string;
+  name: string;
 
   @Column({ default: 30 })
   capacity: number;
 
-  @OneToMany(() => Course, (course) => course.classroom)
-  courses: Relation<Course[]>;
+  @ManyToOne(() => Teacher, (teacher) => teacher.classrooms, { nullable: true, onDelete: 'SET NULL' })
+  @JoinColumn({ name: 'teacherId' })
+  teacher: Relation<Teacher>;
+
+  @OneToMany(() => Student, (student) => student.classroom)
+  students: Relation<Student[]>;
 }

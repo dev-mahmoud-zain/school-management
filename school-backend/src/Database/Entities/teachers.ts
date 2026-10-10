@@ -1,12 +1,8 @@
-import {
-  Entity,
-  PrimaryGeneratedColumn,
-  Column,
-  OneToMany,
-} from 'typeorm';
+
+import { Entity, PrimaryGeneratedColumn, Column, OneToMany } from 'typeorm';
 import type { Relation } from 'typeorm';
 import { BaseModel } from './base.model.js';
-import { Course } from './courses.js';
+import { Classroom } from './classrooms.js';
 
 @Entity('teachers')
 export class Teacher extends BaseModel {
@@ -22,6 +18,6 @@ export class Teacher extends BaseModel {
   @Column({ nullable: true })
   phone: string;
 
-  @OneToMany(() => Course, (course) => course.teacher)
-  courses: Relation<Course[]>;
+  @OneToMany(() => Classroom, (classroom) => classroom.teacher)
+  classrooms: Relation<Classroom[]>;
 }

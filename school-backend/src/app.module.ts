@@ -5,15 +5,14 @@ import { ConfigModule, ConfigService } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { getDatabaseConfig } from './Database/Connection/connection.db.js';
 import { DatabaseService } from './Database/Connection/database.service.js';
-import { Admin } from './Database/Entities/admins.js';
-import { Course } from './Database/Entities/courses.js';
+import { Account } from './Database/Entities/accounts.js';
 import { Classroom } from './Database/Entities/classrooms.js';
 import { Student } from './Database/Entities/students.js';
 import { AuthModule } from './Modules/Auth/auth.module.js';
 import { TeacherModule } from './Modules/Teacher/teacher.module.js';
 import { StudentModule } from './Modules/Student/student.module.js';
 import { ClassroomModule } from './Modules/Classroom/classroom.module.js';
-import { CourseModule } from './Modules/Course/course.module.js';
+import { ImportModule } from './Modules/Import/import.module.js';
 
 @Module({
   imports: [
@@ -26,13 +25,13 @@ import { CourseModule } from './Modules/Course/course.module.js';
       inject: [ConfigService],
       useFactory: getDatabaseConfig,
     }),
-    TypeOrmModule.forFeature([Admin, Course, Classroom, Student]),
+    TypeOrmModule.forFeature([Account, Classroom, Student]),
     AuthModule,
     TeacherModule,
     StudentModule,
     ClassroomModule,
-    CourseModule,
-  ],
+    ImportModule,
+    ],
   controllers: [AppController],
   providers: [AppService, DatabaseService],
 })

@@ -2,13 +2,13 @@ import { Module, Global } from '@nestjs/common';
 import { AuthService } from './auth.service.js';
 import { AuthController } from './auth.controller.js';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { Admin } from '../../Database/Entities/admins.js';
+import { Account } from '../../Database/Entities/accounts.js';
 import { JwtModule } from '@nestjs/jwt';
 
 @Global()
 @Module({
   imports: [
-    TypeOrmModule.forFeature([Admin]),
+    TypeOrmModule.forFeature([Account]),
     JwtModule.register({}),
   ],
   controllers: [AuthController],

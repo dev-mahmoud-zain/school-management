@@ -1,10 +1,10 @@
 {
   "info": {
-    "_postman_id": "94b1197e-e388-4f0c-bf3e-f18aa72088d1",
+    "_postman_id": "c205ba08-6d66-42a5-8296-48163825f2b1",
     "name": "School",
     "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
     "_exporter_id": "56450549",
-    "_collection_link": "https://go.postman.co/collection/56450549-94b1197e-e388-4f0c-bf3e-f18aa72088d1?source=collection_link"
+    "_collection_link": "https://go.postman.co/collection/56450549-c205ba08-6d66-42a5-8296-48163825f2b1?source=collection_link"
   },
   "item": [
     {
@@ -78,7 +78,7 @@
             "header": [],
             "body": {
               "mode": "raw",
-              "raw": "{\n    \"name\": \"John Doe\",\n    \"email\": \"john.doe@example.com\",\n    \"phone\": \"+1234567890\"\n}",
+              "raw": "{\n    \"name\": \"Yasser Al-Fassi\",\n    \"email\": \"yasser.alfassi@gmail.com\",\n    \"phone\": \"+201012345678\"\n}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -145,7 +145,7 @@
             "header": [],
             "body": {
               "mode": "raw",
-              "raw": "{\n    \"name\": \"John Updated\",\n    \"phone\": \"+0987654321\"\n}",
+              "raw": "{\n    \"name\": \"Yasser M. Al-Fassi\",\n    \"phone\": \"+201087654321\"\n}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -207,7 +207,7 @@
             "header": [],
             "body": {
               "mode": "raw",
-              "raw": "{\n    \"name\": \"Alice Smith\",\n    \"email\": \"alice@example.com\",\n    \"phone\": \"+1122334455\"\n}",
+              "raw": "{\n    \"name\": \"Yousef Ahmed\",\n    \"email\": \"yousef.ahmed@gmail.com\",\n    \"phone\": \"+201112345678\"\n}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -260,7 +260,7 @@
               "variable": [
                 {
                   "key": "id",
-                  "value": "replace-with-uuid"
+                  "value": "fcbbbf48-dc96-43f5-a4e0-8f197bcdebf1"
                 }
               ]
             }
@@ -274,7 +274,7 @@
             "header": [],
             "body": {
               "mode": "raw",
-              "raw": "{\n    \"name\": \"Alice Smith\",\n    \"email\": \"alice@example.com\",\n    \"phone\": \"+1122334455\",\n    \"_note\": \"remove fields you don't want to update\"\n}",
+              "raw": "{\n    \"name\": \"Yousef Ahmed Khalil\"\n}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -293,7 +293,7 @@
               "variable": [
                 {
                   "key": "id",
-                  "value": "replace-with-uuid"
+                  "value": "fcbbbf48-dc96-43f5-a4e0-8f197bcdebf1"
                 }
               ]
             }
@@ -317,7 +317,7 @@
               "variable": [
                 {
                   "key": "id",
-                  "value": "replace-with-uuid"
+                  "value": "fcbbbf48-dc96-43f5-a4e0-8f197bcdebf1"
                 }
               ]
             }
@@ -336,7 +336,7 @@
             "header": [],
             "body": {
               "mode": "raw",
-              "raw": "{\n    \"roomNumber\": \"101A\",\n    \"capacity\": 30\n}",
+              "raw": "{\n    \"roomNumber\": \"Science Lab 1\",\n    \"capacity\": 25\n}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -389,7 +389,7 @@
               "variable": [
                 {
                   "key": "id",
-                  "value": "replace-with-uuid"
+                  "value": "67aeebf0-ea3d-494c-8cb9-6a590dd43ced"
                 }
               ]
             }
@@ -403,7 +403,7 @@
             "header": [],
             "body": {
               "mode": "raw",
-              "raw": "{\n    \"roomNumber\": \"101A\",\n    \"capacity\": 30,\n    \"_note\": \"remove fields you don't want to update\"\n}",
+              "raw": "{\n    \"capacity\": 30\n}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -422,7 +422,7 @@
               "variable": [
                 {
                   "key": "id",
-                  "value": "replace-with-uuid"
+                  "value": "67aeebf0-ea3d-494c-8cb9-6a590dd43ced"
                 }
               ]
             }
@@ -441,135 +441,6 @@
               ],
               "path": [
                 "classrooms",
-                ":id"
-              ],
-              "variable": [
-                {
-                  "key": "id",
-                  "value": "replace-with-uuid"
-                }
-              ]
-            }
-          },
-          "response": []
-        }
-      ]
-    },
-    {
-      "name": "06.Courses",
-      "item": [
-        {
-          "name": "Create Course",
-          "request": {
-            "method": "POST",
-            "header": [],
-            "body": {
-              "mode": "raw",
-              "raw": "{\n    \"title\": \"Introduction to Biology\",\n    \"description\": \"Basic concepts of biology.\",\n    \"credits\": 3\n}",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
-            },
-            "url": {
-              "raw": "{{BASE_URL}}/courses",
-              "host": [
-                "{{BASE_URL}}"
-              ],
-              "path": [
-                "courses"
-              ]
-            }
-          },
-          "response": []
-        },
-        {
-          "name": "Get All courses",
-          "request": {
-            "method": "GET",
-            "header": [],
-            "url": {
-              "raw": "{{BASE_URL}}/courses",
-              "host": [
-                "{{BASE_URL}}"
-              ],
-              "path": [
-                "courses"
-              ]
-            }
-          },
-          "response": []
-        },
-        {
-          "name": "Get Course by ID",
-          "request": {
-            "method": "GET",
-            "header": [],
-            "url": {
-              "raw": "{{BASE_URL}}/courses/:id",
-              "host": [
-                "{{BASE_URL}}"
-              ],
-              "path": [
-                "courses",
-                ":id"
-              ],
-              "variable": [
-                {
-                  "key": "id",
-                  "value": "replace-with-uuid"
-                }
-              ]
-            }
-          },
-          "response": []
-        },
-        {
-          "name": "Update Course",
-          "request": {
-            "method": "PATCH",
-            "header": [],
-            "body": {
-              "mode": "raw",
-              "raw": "{\n    \"title\": \"Introduction to Biology\",\n    \"description\": \"Basic concepts of biology.\",\n    \"credits\": 3,\n    \"_note\": \"remove fields you don't want to update\"\n}",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
-            },
-            "url": {
-              "raw": "{{BASE_URL}}/courses/:id",
-              "host": [
-                "{{BASE_URL}}"
-              ],
-              "path": [
-                "courses",
-                ":id"
-              ],
-              "variable": [
-                {
-                  "key": "id",
-                  "value": "replace-with-uuid"
-                }
-              ]
-            }
-          },
-          "response": []
-        },
-        {
-          "name": "Delete Course",
-          "request": {
-            "method": "DELETE",
-            "header": [],
-            "url": {
-              "raw": "{{BASE_URL}}/courses/:id",
-              "host": [
-                "{{BASE_URL}}"
-              ],
-              "path": [
-                "courses",
                 ":id"
               ],
               "variable": [

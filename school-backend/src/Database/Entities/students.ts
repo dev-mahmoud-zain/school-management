@@ -1,13 +1,8 @@
-import {
-  Entity,
-  PrimaryGeneratedColumn,
-  Column,
-  ManyToMany,
-  JoinTable,
-} from 'typeorm';
+
+import { Entity, PrimaryGeneratedColumn, Column, ManyToOne, JoinColumn } from 'typeorm';
 import type { Relation } from 'typeorm';
 import { BaseModel } from './base.model.js';
-import { Course } from './courses.js';
+import { Classroom } from './classrooms.js';
 
 @Entity('students')
 export class Student extends BaseModel {
@@ -26,7 +21,7 @@ export class Student extends BaseModel {
   @Column({ type: 'timestamp', nullable: true })
   enrollmentDate: Date;
 
-  @ManyToMany(() => Course, (course) => course.students)
-  @JoinTable({ name: 'student_courses' })
-  courses: Relation<Course[]>;
+  @ManyToOne(() => Classroom, (classroom) => classroom.students, { nullable: true, onDelete: 'SET NULL' })
+  @JoinColumn({ name: 'classroomId' })
+  classroom: Relation<Classroom>;
 }

@@ -2,6 +2,7 @@ import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { Teacher } from '../../Database/Entities/teachers.js';
+import { Classroom } from '../../Database/Entities/classrooms.js';
 import type { CreateTeacherDto } from './dto/create-teacher.dto.js';
 import type { UpdateTeacherDto } from './dto/update-teacher.dto.js';
 import { ExceptionFactory } from '../../Common/Utils/Response/error.response.js';
@@ -13,6 +14,7 @@ export class TeacherService {
   constructor(
     @InjectRepository(Teacher)
     private teacherRepository: Repository<Teacher>,
+    @InjectRepository(Classroom) private classroomRepo: Repository<Classroom>,
   ) {}
 
   async create(createTeacherDto: CreateTeacherDto) {
@@ -27,11 +29,11 @@ export class TeacherService {
   }
 
   async findAll() {
-    return await this.teacherRepository.find({ relations: { courses: true } });
+    return await this.teacherRepository.find({ relations: { classrooms: true } });
   }
 
   async findOne(id: string) {
-    const teacher = await this.teacherRepository.findOne({ where: { id }, relations: { courses: true } });
+    const teacher = await this.teacherRepository.findOne({ where: { id }, relations: { classrooms: true } });
     if (!teacher) {
       throw this.exceptionFactory.notFound({ message: 'Teacher not found' });
     }
@@ -49,6 +51,8 @@ export class TeacherService {
 
   async remove(id: string) {
     const teacher = await this.findOne(id);
+    const classCount = await this.classroomRepo.count({ where: { teacher: { id } } });
+    if (classCount > 0) throw this.exceptionFactory.conflict({ message: 'Cannot delete teacher with assigned classrooms' });
     await this.teacherRepository.softRemove(teacher); // Soft delete
     return { id };
   }

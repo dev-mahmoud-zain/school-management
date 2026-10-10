@@ -1,4 +1,5 @@
 
+import 'reflect-metadata';
 import 'dotenv/config';
 import { DataSource } from 'typeorm';
 import * as bcrypt from 'bcryptjs';
@@ -24,7 +25,7 @@ async function seed() {
     { name: 'Admin User', email: 'admin@gmail.com', password: 'password123', role: 'admin' },
     { name: 'Operator User', email: 'operator@gmail.com', password: 'password123', role: 'operator' },
     { name: 'Teacher User', email: 'teacher@gmail.com', password: 'password123', role: 'teacher' },
-    { name: 'Student User', email: 'student@gmail.com', password: 'password123', role: 'student' }
+    { name: 'Ahmed Khaled', email: 'student@gmail.com', password: 'password123', role: 'student' }
   ];
 
   for (const acc of accounts) {

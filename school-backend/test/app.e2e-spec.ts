@@ -39,11 +39,11 @@ describe('AppController (e2e)', () => {
     });
 
     // Seed student account for role testing
-    const studentPasswordHash = await bcrypt.hash('studentpass', 10);
+    const ahmedPassword = await bcrypt.hash('studentpass', 10);
     await accountRepo.save({
-      name: 'Student User',
-      email: 'studentrole@test.com',
-      passwordHash: studentPasswordHash,
+      name: 'Ahmed Khaled',
+      email: 'ahmed@gmail.com',
+      passwordHash: ahmedPassword,
       role: 'student',
     });
   });
@@ -67,7 +67,7 @@ describe('AppController (e2e)', () => {
   it('/auth/login (POST) - Student', async () => {
     const res = await request(app.getHttpServer())
       .post('/auth/login')
-      .send({ email: 'studentrole@test.com', password: 'studentpass' })
+      .send({ email: 'ahmed@gmail.com', password: 'studentpass' })
       .expect(200);
     
     expect(res.body.data.token).toBeDefined();

@@ -33,7 +33,6 @@ export class AuthService {
 
     const payload = { sub: account.id, email: account.email, role: account.role };
     
-    // We use BearerToken for everyone now since role is baked into the token
     const secret = this.configService.get<string>('USER_JWT_SECRET');
 
     const token = await this.jwtService.signAsync(payload, { secret, expiresIn: '1d' });

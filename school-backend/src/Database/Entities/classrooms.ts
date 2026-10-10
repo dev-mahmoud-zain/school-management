@@ -10,10 +10,10 @@ export class Classroom extends BaseModel {
   @PrimaryGeneratedColumn('uuid')
   id: string;
 
-  @Column({ length: 50, unique: true })
+  @Column({ type: 'varchar', length: 50, unique: true })
   name: string;
 
-  @Column({ default: 30 })
+  @Column({ type: 'integer', default: 30 })
   capacity: number;
 
   @ManyToOne(() => Teacher, (teacher) => teacher.classrooms, { nullable: true, onDelete: 'SET NULL' })

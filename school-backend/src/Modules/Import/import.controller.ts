@@ -14,9 +14,9 @@ import type { Response } from 'express';
 @ApiBearerAuth('BearerToken')
 @Controller('admin/import')
 @UseGuards(AuthGuard, RolesGuard)
-@Roles('admin') // Restricted to Admin as per requirements
+@Roles('admin') // Restricted to Admin
 export class ImportController {
-  constructor(private readonly importService: ImportService) {}
+  constructor(private readonly importService: ImportService) { }
 
   @Post()
   @ApiConsumes('multipart/form-data')

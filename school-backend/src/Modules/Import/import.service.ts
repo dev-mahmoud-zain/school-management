@@ -46,7 +46,7 @@ export class ImportService {
       if (status === 'error') (report as any)[type].errors.push(r);
     };
 
-    // 1. Process Teachers
+    // 1 Teachers
     const teacherMap = new Map<string, Teacher>(); 
     const teacherNameMap = new Map<string, Teacher>(); 
 
@@ -81,7 +81,7 @@ export class ImportService {
       }
     }
 
-    // 2. Process Classes
+    // 2 Classes
     const classMap = new Map<string, Classroom>();
     const existingClasses = await this.classRepo.find({ relations: { students: true } });
     existingClasses.forEach(c => classMap.set(c.name, c));
@@ -136,7 +136,7 @@ export class ImportService {
       }
     }
 
-    // 3. Process Students
+    // 3 Students
     const studentMap = new Map<string, Student>();
     const existingStudents = await this.studentRepo.find({ relations: { classroom: true } });
     existingStudents.forEach(s => studentMap.set(s.email, s));

@@ -7,6 +7,6 @@ export abstract class BaseModel {
   @UpdateDateColumn({ type: 'timestamp' })
   updatedAt: Date;
 
-  @DeleteDateColumn({ select: false })
+  @DeleteDateColumn({ type: 'timestamp', select: false })
   deletedAt: Date;
 }

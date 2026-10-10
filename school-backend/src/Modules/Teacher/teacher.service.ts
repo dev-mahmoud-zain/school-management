@@ -18,9 +18,10 @@ export class TeacherService {
   ) {}
 
   async create(createTeacherDto: CreateTeacherDto) {
-    // Check if email already exists
-    const existing = await this.teacherRepository.findOne({ where: { email: createTeacherDto.email } });
-    if (existing) {
+
+    const emailExists = await this.teacherRepository.findOne({ where: { email: createTeacherDto.email } });
+
+    if (emailExists) {
       throw this.exceptionFactory.conflict({ message: 'Teacher with this email already exists' });
     }
 
@@ -43,7 +44,6 @@ export class TeacherService {
   async update(id: string, updateTeacherDto: UpdateTeacherDto) {
     const teacher = await this.findOne(id);
     
-    // Update the teacher fields
     Object.assign(teacher, updateTeacherDto);
     
     return await this.teacherRepository.save(teacher);
